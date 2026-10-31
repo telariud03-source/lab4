@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <title>AR.js Marker Based Example</title>
+    
+    <!-- Подключаем A-Frame -->
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    
+    <!-- Подключаем AR.js для A-Frame -->
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  </head>
+  
+  <body style="margin: 0; overflow: hidden;">
+    <!-- AR сцена -->
+    <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
+      
+      <!-- Привязка к стандартному маркеру Hiro -->
+      <a-marker preset="hiro">
+        
+        <!-- 1. Пример простой 3D-фигуры (красный куб) -->
+        <a-box position="0 0.5 0" material="color: red; opacity: 0.8;" animation="property: rotation; to: 0 360 0; loop: true; dur: 5000"></a-box>
+        
+        <!-- 2. Пример подключения реальной 3D-модели (GLTF / GLB) -->
+        <!-- Раскомментируйте строчку ниже и укажите путь к своей модели, предварительно удалив или скрыв a-box -->
+        <!-- <a-gltf-model src="url(path/to/your/model.glb)" position="0 0 0" scale="0.5 0.5 0.5" rotation="0 45 0"></a-gltf-model> -->
+
+      </a-marker>
+
+      <!-- Камера дополненной реальности -->
+      <a-entity camera></a-entity>
+      
+    </a-scene>
+  </body>
+</html>
